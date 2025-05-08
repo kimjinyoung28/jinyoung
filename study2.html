@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+          width: 150px;
+          height: 100px;
+          background-color: lightgray;
+          line-height: 100px;
+          text-align: center;
+          transition: background-color 0.3s;
+          border-radius: 8px;
+        }
+      </style>
+</head>
+<body>
+    <button id="colorBtn">색 바꾸기</button>
+    <div id="box" class="box">기본 박스</div>
+<script>
+  const btn = document.getElementById("colorBtn");
+  const box = document.getElementById("box");
+
+  let changeColor = false;
+
+  btn.addEventListener("click", () => {
+    changeColor = !changeColor;
+    box.style.backgroundColor = changeColor ? "tomato" : "lightgray";
+	box.innerText = changeColor ? "색이 바뀌었어요!" : "기본 박스";
+    
+  });
+</script>
+</body>
+</html>
