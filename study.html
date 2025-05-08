@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>테스트</title>
+    <script src=""></script>
+</head>
+<body>
+    <button id="changeBtn">눌러보세요</button>
+    <p id="text">안녕하세요!</p>
+    <div id="box" style="width: 100px; height: 100px; background: gray;"></div>
+    
+    <input type="text" id="inputBox" placeholder="이름을 입력하세요" />
+      <p id="greeting">안녕하세요, </p>
+
+      <button id="toggleBtn">OFF</button>
+
+      <div id="box2" style="width:50px; height:50px; background:red; position:relative;"></div>
+	<button onclick="moveBox()">이동</button>
+  
+    <script>
+        //html 태그 변수 선언
+      const button = document.getElementById("changeBtn");
+      const text = document.getElementById("text");
+        
+    //button 변수에 클릭이벤트 생성
+      button.addEventListener("click", () => {
+        //text 변수 안 텍스트를 변경
+        text.innerText = "버튼이 눌렸어요!";
+      });
+      
+      const box = document.getElementById("box");
+      
+      //box 변수에 마우스오버 이벤트 생성
+      box.addEventListener("mouseover", () => {
+        //box 에 배경스타일 변경
+        box.style.background = "skyblue";
+      });
+      //box 변수에 마우스아웃 이벤트 생성
+      box.addEventListener("mouseout", () => {
+        //box 에 배경스타일 변경
+        box.style.background = "gray";
+      });
+      
+      
+      const input = document.getElementById("inputBox");
+      const greeting = document.getElementById("greeting");
+      
+      //input 이벤트 생성
+        input.addEventListener("input", () => {
+          greeting.innerText = `안녕하세요, ${input.value}`;
+        });
+
+      const toggleBtn = document.getElementById("toggleBtn");
+	  let isOn = false;
+	
+	  toggleBtn.addEventListener("click", () => {
+	    isOn = !isOn;
+	    toggleBtn.innerText = isOn ? "ON" : "OFF";
+	    toggleBtn.style.backgroundColor = isOn ? "green" : "gray";
+	  });
+
+      function moveBox() {
+	    const box = document.getElementById("box2");
+	    box.style.transform = "translateX(100px)";
+	    box.style.transition = "transform 0.5s ease-in-out";
+	  }
+    </script>
+</body>
+</html>
